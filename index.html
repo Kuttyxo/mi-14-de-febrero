@@ -1,55 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi 14 de febrero?</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: pink;
-        }
-        img {
-            width: 300px;
-            border-radius: 10px;
-            margin: 10px;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .btn {
-            font-size: 18px;
-            padding: 10px 20px;
-            background-color: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin: 10px;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background-color: darkred;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quieres ser mi Valentín?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      color: #333;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1.5rem;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .btn:active {
+      transform: scale(0.95);
+    }
+    .btn-yes {
+      background-color: #ff6f61;
+      color: white;
+    }
+    .btn-yes:hover {
+      background-color: #ff4a3d;
+    }
+    .btn-no {
+      background-color: #ccc;
+      color: black;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>¿Quieres ser mi 14 de febrero?</h1>
-        <img src="IMG_4835.jpg" alt="Nosotros">
-        <img src="IMG_5210.jpg" alt="Nosotros">
-        <br>
-        <button class="btn" onclick="respuesta('Sí')">Sí</button>
-        <button class="btn" onclick="respuesta('No')">No</button>
+  <div class="container">
+    <h1>¿Quieres ser mi Valentín? 💖</h1>
+    <div class="buttons">
+      <button class="btn btn-yes" onclick="alert('¡Sabía que dirías que sí! ❤️')">Sí</button>
+      <button class="btn btn-no" id="noBtn">No</button>
     </div>
-    <script>
-        function respuesta(opcion) {
-            if (opcion === 'Sí') {
-                alert('¡Sabía que dirías que sí! 💖');
-            } else {
-                alert('😢 Pero igual te quiero mucho.');
-            }
-        }
-    </script>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const container = document.querySelector('.container');
+
+    noBtn.addEventListener('mouseover', (event) => {
+      // Genera una nueva posición aleatoria para el botón
+      const containerRect = container.getBoundingClientRect();
+      const buttonWidth = noBtn.offsetWidth;
+      const buttonHeight = noBtn.offsetHeight;
+
+      const maxX = containerRect.width - buttonWidth;
+      const maxY = containerRect.height - buttonHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    });
+  </script>
 </body>
 </html>
