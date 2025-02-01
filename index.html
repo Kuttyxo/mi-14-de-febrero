@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi 14 de febrero?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi 14 de febrero?</h1>
+        <img src="IMG_4835.jpg" alt="Nosotros">
+        <img src="IMG_5210.jpg" alt="Nosotros">
+        <br>
+        <button class="btn" onclick="respuesta('Sí')">Sí</button>
+        <button class="btn" onclick="respuesta('No')">No</button>
+    </div>
+    <script>
+        function respuesta(opcion) {
+            if (opcion === 'Sí') {
+                alert('¡Sabía que dirías que sí! 💖');
+            } else {
+                alert('😢 Pero igual te quiero mucho.');
+            }
+        }
+    </script>
+</body>
+</html>
